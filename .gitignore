@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# User-specific stuff
+.idea
+
+# IntelliJ
+out/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+venv
