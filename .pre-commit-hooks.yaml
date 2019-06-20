@@ -1,0 +1,8 @@
+- id: sbt-unused-imports
+  name: Scala unused imports check
+  language: system #since we're running a command directly
+  pass_filenames: false
+  always_run: true
+  verbose: false
+  entry: sbt
+  args: ['; clean ; set scalacOptions ++= Seq("-Ywarn-unused-import", "-Xfatal-warnings") ; compile']
