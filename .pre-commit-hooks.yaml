@@ -10,8 +10,7 @@
   name: Scala unused imports (+ fatal warnings)
   stages: [commit,push]
   language: python_venv
-  entry: sbt-fatal-warnings
-  args: ['--add_args="-Ywarn-unused-import"']
+  entry: sbt-fatal-warnings --add_arg='-Ywarn-unused-import'
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '0.19.0'
