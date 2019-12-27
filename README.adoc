@@ -1,4 +1,6 @@
 = Pre-commit/Pre-push hooks for Scala
+:repoRoot: https://github.com/softwaremill/scala-pre-commit-hooks
+:repoMaster: {repoRoot}/blob/master
 :defaultScope: test:compile
 :currentVersion: v0.3.0
 
@@ -27,7 +29,7 @@ Currently, they include the following:
 
 To add one or more of the hooks into your repo:
 
-. Have everyone on your team install https://pre-commit.com/#install[pre-commit]
+. Have everyone on your team install https://pre-commit.com/#install[pre-commit].
 . Add a `.pre-commit-config.yaml` file to your repository, with the following syntax:
 
 [source,yaml, subs="attributes"]
@@ -47,8 +49,7 @@ repos:
         args: [--warts=Warts.unsafe, --scope={defaultScope}]
 ----
 
-:listing-number: 3
-. Run `pre-commit install` to apply your hooks to the repo.
+3. Run `pre-commit install` to apply your hooks to the repo.
 
 [NOTE]
 --
@@ -80,10 +81,10 @@ repos:
         stages: [push]
 ----
 
-== I want more hooks!
+== I want more hooks/found a problem!
 
-Excellent, please create an issue.
+Thanks for noticing that! Please create an {repoRoot}/issues[issue].
 
 == I want to add a hook!
 
-Excellenter, please create a PR. See the contribution guide for more details.
+Excellent, please create a PR. See {repoMaster}/CONTRIBUTING.adoc[the contribution guide] for more details.
