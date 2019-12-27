@@ -1,8 +1,33 @@
-- id: sbt-unused-imports
-  name: Scala unused imports check
-  language: system #since we're running a command directly
+- id: sbt-fatal-warnings
+  name: Scala fatal warnings
+  stages: [commit,push]
+  language: python_venv
+  entry: sbt-fatal-warnings
   pass_filenames: false
   always_run: true
-  verbose: false
-  entry: sbt
-  args: ['; clean ; set scalacOptions ++= Seq("-Ywarn-unused-import", "-Xfatal-warnings") ; compile']
+  minimum_pre_commit_version: '0.19.0'
+- id: sbt-unused-imports
+  name: Scala unused imports (+ fatal warnings)
+  stages: [commit,push]
+  language: python_venv
+  entry: sbt-fatal-warnings
+  args: ['--add_args="-Ywarn-unused-import"']
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
+- id: sbt-scalafmt
+  name: scalafmt formatting check
+  stages: [commit,push]
+  language: python_venv
+  entry: scalafmt
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
+- id: sbt-wartremover
+  name: Scala WartRemover plugin check
+  language: python_venv
+  stages: [commit,push]
+  entry: sbt-wartremover
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
