@@ -31,7 +31,7 @@ To add one or more of the hooks into your repo:
 
 . Have everyone on your team install https://pre-commit.com/#install[pre-commit].
 . Add a `.pre-commit-config.yaml` file to your repository, with the following syntax:
-
++
 [source,yaml, subs="attributes"]
 ..pre-commit-config.yaml
 ----
@@ -48,8 +48,8 @@ repos:
     -   id: sbt-wartremover #arguments are optional
         args: [--warts=Warts.unsafe, --scope={defaultScope}]
 ----
-
-3. Run `pre-commit install` to apply your hooks to the repo.
++
+. Run `pre-commit install` to apply your hooks to the repo.
 
 [NOTE]
 --
