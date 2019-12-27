@@ -1,0 +1,11 @@
+= How to contribute
+
+== Adding/modifying a hook
+
+- Language: `system` or `python_venv` hooks are preferred, due to ease of maintenance, but if you've written a hook in another language that's on https://pre-commit.com/#supported-languages[pre-commit's supported list], that's fine as well.
+- Try to avoid modifying the working copy of files if you can, *especially* in the case of changing already-existent hooks.
+- There's no test harness currently, but you're welcome to add one.
+
+== Other changes/additions
+
+Also welcome. Please concisely describe rationale if relevant.
