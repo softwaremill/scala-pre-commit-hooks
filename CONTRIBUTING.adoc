@@ -1,5 +1,14 @@
 = How to contribute
 
+== Reporting issues
+
+Please state:
+ - The contents of your `.pre-commit-config.yaml` project file.
+ - Your pre-commit version.
+ - Your operating system (including major/minor version if able).
+ - Steps that have to be performed in order to reproduce the issue.
+ - As much of the relevant console output as you're willing to share (you're, of course, welcome to sanitize out any "private" information such as absolute paths).
+
 == Adding/modifying a hook
 
 - Language: `system` or `python_venv` hooks are preferred, due to ease of maintenance, but if you've written a hook in another language that's on https://pre-commit.com/#supported-languages[pre-commit's supported list], that's fine as well.
