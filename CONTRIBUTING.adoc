@@ -3,6 +3,7 @@
 == Reporting issues
 
 Please state:
+
  - The contents of your `.pre-commit-config.yaml` project file.
  - Your pre-commit version.
  - Your operating system (including major/minor version if able).
