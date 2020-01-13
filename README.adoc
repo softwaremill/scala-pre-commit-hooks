@@ -64,10 +64,10 @@ Steps 1-2 are only really required for the person setting up the _pre-commit lib
 
 == How to control hook run time
 
-By default, the hooks defined here run on *both* pre-commit and pre-push. They do however, require some time to get running
-on large codebases, especially since each hooks execution is essentially a clean build.
+By default, the hooks defined here run on *both* pre-commit and pre-push. They do, however, require some time to get running
+on large codebases, especially since each hook's execution is essentially a clean build.
 
-To limit hook runs to e.g. `pre-push`, you need to add `stages` argument with the relevant value:
+To limit hook runs to e.g. `pre-push`, you need to add a `stages` argument with the relevant value:
 
 [source,yaml, subs="attributes"]
 ..pre-commit-config.yaml
