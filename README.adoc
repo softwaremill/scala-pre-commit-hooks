@@ -75,10 +75,9 @@ To limit hook runs to e.g. `pre-push`, you need to add a `stages` argument with 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: {currentVersion}
-    default_phase: push #change to commit if desired
-    hooks: #mix and match any of the following:
+    hooks:
     -   id: sbt-fatal-warnings
-        stages: [push]
+        stages: [push] #or [commit, push] etc.
 ----
 
 == I want more hooks/found a problem!
