@@ -25,6 +25,7 @@ Currently, they include the following:
 - `sbt-fatal-warnings` - turns on `-Xfatal-warnings`, runs a clean compilation on the given scope.
 - `sbt-unused-imports` - as above, but also adds the "unused imports" warning.
 - `sbt-scalafmt` - runs `scalafmtCheckAll`.
+- `sbt-scalastyle` - runs `scalastyle`.
 - `sbt-wartremover` - runs the wartremover plugin.
 - `sbt-scapegoat` - runs the scapegoat plugin.
 
@@ -46,6 +47,7 @@ repos:
     -   id: sbt-unused-imports #includes fatal warnings, arguments optional
         args: [--scope={defaultScope}]
     -   id: sbt-scalafmt
+    -   id: sbt-scalastyle
     -   id: sbt-wartremover #arguments are optional
         args: [--warts=Warts.unsafe, --scope={defaultScope}]
 ----
