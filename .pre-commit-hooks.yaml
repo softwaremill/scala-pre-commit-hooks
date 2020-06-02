@@ -22,6 +22,14 @@
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '0.19.0'
+- id: sbt-scalariform
+  name: scalariform formatting check
+  stages: [commit,push]
+  language: python_venv
+  entry: sbt-scalariform
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
 - id: sbt-scalastyle
   name: scalastyle formatting check
   stages: [commit,push]
