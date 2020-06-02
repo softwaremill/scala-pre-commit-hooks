@@ -22,6 +22,14 @@
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '0.19.0'
+- id: sbt-scapegoat
+  name: scapegoat static analysis check
+  stages: [commit,push]
+  language: python_venv
+  entry: sbt-scapegoat
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
 - id: sbt-wartremover
   name: Scala WartRemover plugin check
   language: python_venv

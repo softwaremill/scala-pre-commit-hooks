@@ -26,6 +26,7 @@ Currently, they include the following:
 - `sbt-unused-imports` - as above, but also adds the "unused imports" warning.
 - `sbt-scalafmt` - runs `scalafmtCheckAll`.
 - `sbt-wartremover` - runs the wartremover plugin.
+- `sbt-scapegoat` - runs the scapegoat plugin.
 
 To add one or more of the hooks into your repo:
 
