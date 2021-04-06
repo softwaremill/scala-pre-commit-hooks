@@ -15,7 +15,8 @@ def main(argv=None):
 
     args = arg_p.parse_args(argv).__dict__
 
-    args[ARG_ADDITIONAL_ARGS].append("-Xfatal-warnings")
+    if ARG_ADDITIONAL_ARGS is not None:
+        args[ARG_ADDITIONAL_ARGS].append("-Xfatal-warnings")
 
     add_args = ", ".join(f'"{a}"' for a in args[ARG_ADDITIONAL_ARGS])
 
