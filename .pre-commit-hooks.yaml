@@ -37,4 +37,4 @@
   entry: scalafix
   pass_filenames: false
   always_run: true
-  minimum_pre_commit_version: '0.3.2'
+  minimum_pre_commit_version: '0.3.6'
