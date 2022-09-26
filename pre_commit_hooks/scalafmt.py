@@ -9,7 +9,9 @@ MISSING_PLUGIN_ERROR_MSG = f'{Fore.RED}ERROR: scalafmt SBT plugin not present! S
 def main(argv=None):
     colorama_init()
 
-    return run_sbt_command(f'; clean; {TASK_SCALAFMT}; compile', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    scala_fmt = run_sbt_command(f'; clean; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    run_sbt_command('compile')
+    return scala_fmt
 
 
 if __name__ == '__main__':
