@@ -30,3 +30,11 @@
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '0.19.0'
+- id: sbt-github-actions
+  name: Generate github workflows using sbt-github-actions plugin
+  language: python_venv
+  stages: [commit,push]
+  entry: sbt-github-actions
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.19.0'
