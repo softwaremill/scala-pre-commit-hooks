@@ -58,5 +58,5 @@ repos:
     rev: {currentVersion}
     hooks:
     -   id: sbt-fatal-warnings
-        stages: [push] #or [commit, push] etc.
+        stages: [pre-push] #or [commit, pre-push] etc.
 ```
