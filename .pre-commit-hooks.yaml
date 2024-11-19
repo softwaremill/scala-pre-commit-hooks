@@ -30,3 +30,11 @@
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '4.0.0'
+- id: sbt-scalafix
+  name: scalafix linter
+  stages: [commit,pre-push]
+  language: python
+  entry: sbt-scalafix
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '4.0.0'
