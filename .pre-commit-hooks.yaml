@@ -18,7 +18,7 @@
   name: scalafmt formatting check
   stages: [commit,pre-push]
   language: python
-  entry: scalafmt
+  entry: sbt-scalafmt
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '4.0.0'
