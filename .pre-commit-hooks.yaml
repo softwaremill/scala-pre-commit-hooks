@@ -30,3 +30,11 @@
   pass_filenames: false
   always_run: true
   minimum_pre_commit_version: '0.19.0'
+- id: sbt-scalafix
+  name: scalafix linting check
+  stages: [commit,push]
+  language: python_venv
+  entry: scalafix
+  pass_filenames: false
+  always_run: true
+  minimum_pre_commit_version: '0.3.6'
