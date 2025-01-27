@@ -1,4 +1,4 @@
-from pre_commit_hooks.runner import run_sbt_command
+from pre_commit_hooks.runner import run_sbt_command, run_git_add_modified
 from colorama import init as colorama_init, Fore
 
 TASK_SCALAFMT = 'scalafmtAll'
@@ -9,7 +9,10 @@ MISSING_PLUGIN_ERROR_MSG = f'{Fore.RED}ERROR: scalafmt SBT plugin not present! S
 def main(argv=None):
     colorama_init()
 
-    return run_sbt_command(f'; clean ; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    sbt = run_sbt_command(f'; clean ; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    run_git_add_modified()
+
+    return sbt
 
 
 if __name__ == '__main__':
