@@ -12,3 +12,17 @@ def run_sbt_command(task_def, missing_plugin_check_string=None, missing_plugin_e
         print(raw_output)
 
     return sbt_process.returncode
+
+def run_git_add_modified():
+    """Adds stages files if changes are detected."""
+    try:
+        # Check if there are modified files before running git add -u
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+
+        if status.stdout.strip():  # If there are modified files
+            print("Staged formatted files.")
+            return subprocess.run(["git", "add", "-u"], check=True)
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        return e.returncode
