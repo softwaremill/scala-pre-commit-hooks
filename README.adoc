@@ -26,6 +26,7 @@ Currently, they include the following:
 - `sbt-unused-imports` - as above, but also adds the "unused imports" warning.
 - `sbt-scalafmt` - runs `scalafmtCheckAll`.
 - `sbt-wartremover` - runs the wartremover plugin.
+- `sbt-scalafmt-apply` - runs `scalafmtAll`.
 
 To add one or more of the hooks into your repo:
 
@@ -45,6 +46,7 @@ repos:
     -   id: sbt-unused-imports #includes fatal warnings, arguments optional
         args: [--scope={defaultScope}]
     -   id: sbt-scalafmt
+    -   id: sbt-scalafmt-apply
     -   id: sbt-wartremover #arguments are optional
         args: [--warts=Warts.unsafe, --scope={defaultScope}]
 ----
@@ -53,7 +55,7 @@ repos:
 
 [NOTE]
 --
-All hooks except for `sbt-scalafmt` have the optional `scope` argument, which allows to define what source scopes
+All hooks except for `sbt-scalafmt` and `sbt-scalafmt-apply` have the optional `scope` argument, which allows to define what source scopes
 are relevant for the hook's check. The default is `{defaultScope}`.
 --
 
