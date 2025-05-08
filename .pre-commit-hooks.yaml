@@ -15,6 +15,7 @@
   always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-scalafmt
+  alias: scalafmt
   name: scalafmt formatting check
   stages: [pre-commit, pre-push]
   language: python
@@ -31,6 +32,7 @@
   always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-scalafmt-apply
+  alias: scalafmt-apply
   name: scalafmt formatting fix
   stages: [pre-commit, pre-push]
   language: python
