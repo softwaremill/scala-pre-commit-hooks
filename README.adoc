@@ -47,6 +47,7 @@ repos:
         args: [--scope={defaultScope}]
     -   id: sbt-scalafmt
     -   id: sbt-scalafmt-apply
+        args: [--no-clean]
     -   id: sbt-wartremover #arguments are optional
         args: [--warts=Warts.unsafe, --scope={defaultScope}]
 ----
@@ -57,6 +58,12 @@ repos:
 --
 All hooks except for `sbt-scalafmt` and `sbt-scalafmt-apply` have the optional `scope` argument, which allows to define what source scopes
 are relevant for the hook's check. The default is `{defaultScope}`.
+--
+
+[NOTE]
+--
+All hooks have an optional `project-dir` arugument, which is useful for monorepos that do not have a `build.sbt` in their root.
+All hooks have an optional `no-clean` arugument, which won't automatically run an `sbt clean` before executing the command.
 --
 
 [IMPORTANT]

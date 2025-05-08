@@ -5,7 +5,7 @@ import argparse
 from colorama import Fore
 from colorama import init as colorama_init
 
-from pre_commit_hooks.runner import run_sbt_command
+from pre_commit_hooks.runner import default_argparse, run_sbt_command
 
 ARG_WARTREMOVER_ARGS = "warts"
 ARG_COMPILE_SCOPE = "scope"
@@ -18,25 +18,31 @@ MISSING_PLUGIN_ERROR_MSG = f"{Fore.RED}ERROR: wartremover SBT plugin not present
 def main(argv=None):
     colorama_init()
 
-    arg_p = argparse.ArgumentParser(description="Run SBT wartremover")
-    arg_p.add_argument(
-        f"--{ARG_WARTREMOVER_ARGS}",
-        default=DEFAULT_WARTREMOVER_ARGS,
-        help=f"Value for wartremoverErrors, as per https://www.wartremover.org/doc/install-setup.html . Default: {DEFAULT_WARTREMOVER_ARGS}",
-    )
-    arg_p.add_argument(
-        f"--{ARG_COMPILE_SCOPE}",
-        default=DEFAULT_COMPILE_SCOPE,
-        help=f"Compile scope for the wartremover check. Default: {DEFAULT_COMPILE_SCOPE}",
-    )
-    arg_p.print_help()
+    def arg_wartremover(arg_p: argparse.ArgumentParser) -> None:
+        arg_p.add_argument(
+            f"--{ARG_WARTREMOVER_ARGS}",
+            default=DEFAULT_WARTREMOVER_ARGS,
+            help=f"Value for wartremoverErrors, as per https://www.wartremover.org/doc/install-setup.html . Default: {DEFAULT_WARTREMOVER_ARGS}",
+        )
 
-    args = arg_p.parse_args(argv).__dict__
+    def arg_compile_scope(arg_p: argparse.ArgumentParser) -> None:
+        arg_p.add_argument(
+            f"--{ARG_COMPILE_SCOPE}",
+            default=DEFAULT_COMPILE_SCOPE,
+            help=f"Compile scope for the check. Default: {DEFAULT_COMPILE_SCOPE}",
+        )
+
+    args = default_argparse(
+        description="Run SBT wartremover",
+        argv=argv,
+        additional_args=[arg_wartremover, arg_compile_scope],
+    )
 
     return run_sbt_command(
-        f"; clean ; set wartremoverErrors ++= {args[ARG_WARTREMOVER_ARGS]}; {args[ARG_COMPILE_SCOPE]}",
-        MISSING_PLUGIN_CHECK_STRING,
-        MISSING_PLUGIN_ERROR_MSG,
+        task_def=f"set wartremoverErrors ++= {args.varargs.get(ARG_WARTREMOVER_ARGS)}; {args.varargs.get(ARG_COMPILE_SCOPE)}",
+        missing_plugin_check_string=MISSING_PLUGIN_CHECK_STRING,
+        missing_plugin_error_msg=MISSING_PLUGIN_ERROR_MSG,
+        opts=args,
     )
 
 
