@@ -2,9 +2,9 @@ import subprocess
 
 
 def run_sbt_command(
-    task_def,
-    missing_plugin_check_string=None,
-    missing_plugin_error_msg=None,
+    task_def: str,
+    missing_plugin_check_string: str | None = None,
+    missing_plugin_error_msg: str | None = None,
 ):
     sbt_process = subprocess.run(
         [f"sbt '{task_def}'"],

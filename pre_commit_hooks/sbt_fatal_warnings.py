@@ -27,12 +27,13 @@ def main(argv=None):
     addtl_args = args.get(ARG_ADDITIONAL_ARGS, [])
     if not addtl_args:
         addtl_args = []
-    addtl_args.append("-Xfatal-warnings")
+    if "-Xfatal-warnings" not in addtl_args:
+        addtl_args.append("-Xfatal-warnings")
 
     add_args = ", ".join(f'"{a}"' for a in addtl_args)
 
     return run_sbt_command(
-        f"; clean ; set scalacOptions ++= Seq({add_args}) ; {addtl_args}",
+        f"; clean ; set scalacOptions ++= Seq({add_args})",
     )
 
 
