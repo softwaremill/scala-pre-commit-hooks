@@ -2,7 +2,7 @@
 :repoRoot: https://github.com/softwaremill/scala-pre-commit-hooks
 :repoMaster: {repoRoot}/blob/master
 :defaultScope: test:compile
-:currentVersion: v0.3.0
+:currentVersion: v0.5.0
 
 == What for?
 
@@ -37,7 +37,7 @@ To add one or more of the hooks into your repo:
 ..pre-commit-config.yaml
 ----
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+-   repo: https://github.com/softwaremill/scala-pre-commit-hooks
     rev: {currentVersion}
     default_phase: push #change to commit if desired
     hooks: #mix and match any of the following:
