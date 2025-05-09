@@ -4,7 +4,6 @@
   language: python
   entry: sbt-fatal-warnings
   pass_filenames: false
-  always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-unused-imports
   name: Scala unused imports (+ fatal warnings)
@@ -12,7 +11,6 @@
   language: python
   entry: sbt-fatal-warnings --add_arg='-Ywarn-unused-import'
   pass_filenames: false
-  always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-scalafmt
   alias: scalafmt
@@ -21,7 +19,6 @@
   language: python
   entry: scalafmt
   pass_filenames: false
-  always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-wartremover
   name: Scala WartRemover plugin check
@@ -29,7 +26,6 @@
   language: python
   entry: sbt-wartremover
   pass_filenames: false
-  always_run: true
   minimum_pre_commit_version: "0.19.0"
 - id: sbt-scalafmt-apply
   alias: scalafmt-apply
@@ -38,5 +34,4 @@
   language: python
   entry: scalafmt-apply
   pass_filenames: false
-  always_run: true
   minimum_pre_commit_version: "0.19.0"
