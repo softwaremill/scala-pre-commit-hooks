@@ -53,12 +53,13 @@ def run_sbt_command(
     opts: Opts = Opts(),
 ):
     print(f"Running SBT command: {task_def} with options: {opts}")
+    sbt_args = "--client" if opts.client else ""
     if opts.clean:
         task_def = f"; clean ; {task_def}"
     else:
         task_def = f"; {task_def}"
     sbt_process = subprocess.run(
-        ["sbt", task_def, "--client" if opts.client else ""],
+        [f"sbt {sbt_args} '{task_def}'"],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         shell=True,
