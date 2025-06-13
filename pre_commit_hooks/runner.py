@@ -9,6 +9,7 @@ class Opts:
     project_dir: str | None = None
     clean: bool = True
     varargs: dict = field(default_factory=dict)
+    client: bool = False
 
 
 def default_argparse(
@@ -28,12 +29,19 @@ def default_argparse(
         default=False,
         help="Turn off sbt clean. Default: False",
     )
+    arg_p.add_argument(
+        "--client",
+        action="store_true",
+        default=False,
+        help="Run sbt in --client mode, persisting sessions across commits. Default: False",
+    )
     for fn in additional_args:
         fn(arg_p)
     varags = vars(arg_p.parse_args(argv))
     return Opts(
         project_dir=varags.pop("project_dir", None),
         clean=not varags.pop("no_clean", False),
+        client=varags.pop("client", False),
         varargs=varags,
     )
 
@@ -50,7 +58,7 @@ def run_sbt_command(
     else:
         task_def = f"; {task_def}"
     sbt_process = subprocess.run(
-        [f"sbt '{task_def}'"],
+        ["sbt", task_def, "--client" if opts.client else ""],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         shell=True,
