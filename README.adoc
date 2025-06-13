@@ -62,8 +62,9 @@ are relevant for the hook's check. The default is `{defaultScope}`.
 
 [NOTE]
 --
-All hooks have an optional `project-dir` arugument, which is useful for monorepos that do not have a `build.sbt` in their root.
-All hooks have an optional `no-clean` arugument, which won't automatically run an `sbt clean` before executing the command.
+All hooks have an optional `project-dir` argument, which is useful for monorepos that do not have a `build.sbt` in their root.
+All hooks have an optional `no-clean` argument, which won't automatically run an `sbt clean` before executing the command.
+All hooks have an optional `client` argument, which will persist the SBT session across invocations on newer SBT versions.
 --
 
 [IMPORTANT]
